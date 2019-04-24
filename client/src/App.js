@@ -1,16 +1,22 @@
-import React from "react";
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
+import React from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Nav from './components/Nav';
+import Search from './pages/Search';
+import Saved from './pages/Saved';
 
-function App() {
-  return (
+
+const App = () => (
+  <Router>
     <div>
-      <Nav />
-      <Books />
+      <Nav/>
+      <Switch>
+        <Route exact path="/" component={Search}/>
+        <Route exact path="/search" component={Search}/>
+        <Route exact path="/saved" component={Saved}/>
+      </Switch>
     </div>
-  );
-}
+    <Jumbotron/>
+  </Router>
+);
 
 export default App;
