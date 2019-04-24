@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import SaveBtn from "../components/DeleteBtn";
+import SaveBtn from "../components/SaveBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Input, FormBtn } from "../components/Form";
 
 class Search extends Component {
   state = {
@@ -52,28 +52,26 @@ class Search extends Component {
           <Col size="sm-12">
             <Jumbotron>
               <h1>Google Books React App</h1>
+              <h3>Enter a title below to begin searching...</h3>
             </Jumbotron>
             <form>
               <Input
                 value={this.state.title}
                 onChange={this.handleInputChange}
                 name="title"
-                placeholder="Enter Book Title to Search"
+                placeholder="e.g. The Lord of the Flies"
               />
               <FormBtn
                 // disabled={!(this.state.author && this.state.title)}
                 onClick={this.handleFormSubmit}
               >
-                Search For Books
+                Search
               </FormBtn>
             </form>
           </Col>
         </Row>
         <Row>
           <Col size="sm-12">
-            <Jumbotron>
-              <h1>Results</h1>
-            </Jumbotron>
             {this.state.books.length ? (
               <List>
                 {this.state.books.map(book => (

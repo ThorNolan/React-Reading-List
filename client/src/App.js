@@ -15,7 +15,6 @@ const App = () => (
         <Route exact path="/saved" component={Saved}/>
       </Switch>
     </div>
-    <Jumbotron/>
   </Router>
 );
 
