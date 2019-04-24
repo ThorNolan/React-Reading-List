@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default {
   getGoogleBooks: function (search) {
-    return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=15&key=trilogy`)
+    return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=15`)
   },
 
   saveBook: function (bookData) {

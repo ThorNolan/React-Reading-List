@@ -8,42 +8,37 @@ import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 
 class Search extends Component {
-  state = {
-    books: [],
-    title: "",
-    author: "",
-    synopsis: ""
-  };
-
-
-  saveBook = id => {
-    API.saveBook(id)
-      .then(alert("Book saved to libarary."))
-      .catch(err => console.log(err));
-  };
-
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.title && this.state.author) {
-      API.searchBooks({
-        title: this.state.title,
-
-      })
-        .then(res => res.map(
-            this.setState({
-                books: res
-            })
-        ))
-        .catch(err => console.log(err));
-    }
-  };
+    state = {
+        books: [],
+        title: "",
+        author: "",
+      };
+    
+    
+      saveBook = book => {
+        API.saveBook(book)
+          .then(alert("Book saved to library."))
+          .catch(err => console.log(err));
+      };
+    
+      handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+      };
+    
+      handleFormSubmit = event => {
+        event.preventDefault();
+        console.log("handle form");
+          API.getGoogleBooks(this.state.title)
+            .then(res => 
+                this.setState({
+                    books: res.items
+                })
+            )
+            .catch(err => console.log(err));
+      };
 
   render() {
     return (
@@ -51,7 +46,7 @@ class Search extends Component {
         <Row>
           <Col size="sm-12">
             <Jumbotron>
-              <h1>Google Books React App</h1>
+              <h1>Google Books React Search</h1>
               <h3>Enter a title below to begin searching...</h3>
             </Jumbotron>
             <form>

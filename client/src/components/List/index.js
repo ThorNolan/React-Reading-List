@@ -1,16 +1,30 @@
 import React from "react";
 import "./style.css";
 
-// This file exports both the List and ListItem components
 
-export function List({ children }) {
+
+export function Card({ props }) {
+
   return (
-    <div className="list-overflow-container">
-      <ul className="list-group">{children}</ul>
+    <div className="card">
+      <div className="img-container">
+        <img className="thumbnail" alt={props.name} src={props.image} />
+      </div>
+      <div className="content">
+        <ul>
+          <li>
+            <strong>Name:</strong> {props.name}
+          </li>
+          <li>
+            <strong>Author:</strong> {props.author}
+          </li>
+          <li>
+            <strong>Summary:</strong>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
 
-export function ListItem({ children }) {
-  return <li className="list-group-item">{children}</li>;
-}
+export default Card;

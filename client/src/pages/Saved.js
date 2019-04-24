@@ -19,6 +19,7 @@ class Detail extends Component {
           <Col size="md-12">
             <Jumbotron>
                 <h1>Google Books React Search</h1>
+                
                 <h3>Your Saved Books</h3>
             </Jumbotron>
           </Col>
