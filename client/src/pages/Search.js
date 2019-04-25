@@ -1,19 +1,48 @@
 import React, { Component } from "react";
-import SaveBtn from "../components/SaveBtn";
+// import SaveBtn from "../components/SaveBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+import Card from "../components/Card";
 import { Input, FormBtn } from "../components/Form";
 
+const formatBookResults = googleApiResults => {
+  const bookArray = [];
+
+  googleApiResults.map(book => {
+
+    const formattedBook = {
+      title: book.volumeInfo.title,
+      authors: book.volumeInfo.authors
+        ? book.volumeInfo.authors
+        : ['No Author Listed.'],
+      description: book.volumeInfo.description
+        ? book.volumeInfo.description
+        : 'No Description Listed.',
+      googleBookId: book.id,
+      thumbnail: book.volumeInfo.imageLinks
+        ? book.volumeInfo.imageLinks.thumbnail
+        : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/170px-No_image_available.svg.png',
+      link: book.volumeInfo.canonicalVolumeLink,
+      pageCount: book.volumeInfo.pageCount,
+      subtitle: book.volumeInfo.subtitle,
+      publishedDate: book.volumeInfo.publishedDate
+    };
+
+    bookArray.push(formattedBook);
+    return bookArray
+  });
+  return bookArray;
+};
+
 class Search extends Component {
+  
     state = {
         books: [],
         title: "",
         author: "",
       };
-    
     
       saveBook = book => {
         API.saveBook(book)
@@ -32,12 +61,11 @@ class Search extends Component {
         event.preventDefault();
         console.log("handle form");
           API.getGoogleBooks(this.state.title)
-            .then(res => 
-                this.setState({
-                    books: res.items
-                })
-            )
-            .catch(err => console.log(err));
+          .then(res => {
+            const formattedArray = formatBookResults(res.data.items);
+            this.setState({books: formattedArray});
+          })
+          .catch(err => console.log(err));
       };
 
   render() {
@@ -68,20 +96,28 @@ class Search extends Component {
         <Row>
           <Col size="sm-12">
             {this.state.books.length ? (
-              <List>
-                {this.state.books.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
-                      <strong>
-                        {book.title} by {book.author}
-                      </strong>
-                    </Link>
-                    <SaveBtn onClick={() => this.saveBook(book._id)} />
-                  </ListItem>
-                ))}
-              </List>
+              // <Card>
+              //   {this.state.books.map(book => (
+              //     <Card key={book._id}>
+              //       <Link to={"/books/" + book._id}>
+              //         <strong>
+              //           {book.title} by {book.author}
+              //         </strong>
+              //       </Link>
+              //       <SaveBtn onClick={() => this.saveBook(book._id)} />
+              //     </Card>
+              //   ))}
+              // </Card>
+              <Card
+              books={this.state.books}
+              buttonAction={this.saveBook}
+              buttonType="btn btn-success mt-2"
+              buttonText="Save Book"
+              />
             ) : (
-              <h3>No Results to Display</h3>
+              <div className="mx-auto">
+                <h3 className="mx-auto">No Results to Display</h3>
+              </div>
             )}
           </Col>
         </Row>
