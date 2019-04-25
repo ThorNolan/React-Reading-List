@@ -1,31 +1,26 @@
 import React, { Component } from "react";
-// import SaveBtn from "../components/SaveBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Card from "../components/Card";
 import { Input, FormBtn } from "../components/Form";
 
+// Book results from the google API need to be formatted so that they can be transmuted to the state of the search page
 const formatBookResults = googleApiResults => {
   const bookArray = [];
 
   googleApiResults.map(book => {
 
+    // Formatted book object for passing down props to the stateless book card component
     const formattedBook = {
       title: book.volumeInfo.title,
-      authors: book.volumeInfo.authors
-        ? book.volumeInfo.authors
-        : ['No Author Listed.'],
-      description: book.volumeInfo.description
-        ? book.volumeInfo.description
-        : 'No Description Listed.',
+      authors: book.volumeInfo.authors,
+      description: book.volumeInfo.description,
       googleBookId: book.id,
       thumbnail: book.volumeInfo.imageLinks
         ? book.volumeInfo.imageLinks.thumbnail
         : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/170px-No_image_available.svg.png',
       link: book.volumeInfo.canonicalVolumeLink,
-      pageCount: book.volumeInfo.pageCount,
       subtitle: book.volumeInfo.subtitle,
       publishedDate: book.volumeInfo.publishedDate
     };
@@ -38,35 +33,33 @@ const formatBookResults = googleApiResults => {
 
 class Search extends Component {
   
-    state = {
-        books: [],
-        title: "",
-        author: "",
-      };
+  state = {
+    books: [],
+  };
     
-      saveBook = book => {
-        API.saveBook(book)
-          .then(alert("Book saved to library."))
-          .catch(err => console.log(err));
-      };
+  saveBook = book => {
+    API.saveBook(book)
+      .then(alert("Book saved to library."))
+      .catch(err => console.log(err));
+    };
     
-      handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-          [name]: value
-        });
-      };
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
     
-      handleFormSubmit = event => {
-        event.preventDefault();
-        console.log("handle form");
-          API.getGoogleBooks(this.state.title)
-          .then(res => {
-            const formattedArray = formatBookResults(res.data.items);
-            this.setState({books: formattedArray});
-          })
-          .catch(err => console.log(err));
-      };
+  handleFormSubmit = event => {
+    event.preventDefault();
+    console.log("handle form");
+      API.getGoogleBooks(this.state.title)
+        .then(res => {
+          const formattedArray = formatBookResults(res.data.items);
+          this.setState({books: formattedArray});
+        })
+        .catch(err => console.log(err));
+  };
 
   render() {
     return (
@@ -74,8 +67,8 @@ class Search extends Component {
         <Row>
           <Col size="sm-12">
             <Jumbotron>
-              <h1>Google Books React Search</h1>
-              <h3>Enter a title below to begin searching...</h3>
+              <h1>Google Books Librarian, at Your Service</h1>
+              <h5>Enter a title below to begin searching...</h5>
             </Jumbotron>
             <form>
               <Input
@@ -96,27 +89,15 @@ class Search extends Component {
         <Row>
           <Col size="sm-12">
             {this.state.books.length ? (
-              // <Card>
-              //   {this.state.books.map(book => (
-              //     <Card key={book._id}>
-              //       <Link to={"/books/" + book._id}>
-              //         <strong>
-              //           {book.title} by {book.author}
-              //         </strong>
-              //       </Link>
-              //       <SaveBtn onClick={() => this.saveBook(book._id)} />
-              //     </Card>
-              //   ))}
-              // </Card>
               <Card
-              books={this.state.books}
-              buttonAction={this.saveBook}
-              buttonType="btn btn-success mt-2"
-              buttonText="Save Book"
+                books={this.state.books}
+                buttonAction={this.saveBook}
+                buttonType="btn btn-success mt-2"
+                buttonText="Save Book"
               />
             ) : (
               <div className="mx-auto">
-                <h3 className="mx-auto">No Results to Display</h3>
+                <h3 className="mx-auto">No results to display! Enter a title above</h3>
               </div>
             )}
           </Col>

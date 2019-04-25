@@ -6,11 +6,8 @@ import Jumbotron from "../components/Jumbotron";
 
 class Detail extends Component {
   state = {
-    book: {}
+    books: []
   };
-  // Add code to get the book with an _id equal to the id in the route param
-  // e.g. http://localhost:3000/books/:id
-  // The book id for this route can be accessed using this.props.match.params.id
 
   render() {
     return (
@@ -18,9 +15,9 @@ class Detail extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-                <h1>Google Books React Search</h1>
+                <h1>Google Books Librarian, at Your Service</h1>
                 
-                <h3>Your Saved Books</h3>
+                <h5>Your Saved Books:</h5>
             </Jumbotron>
           </Col>
         </Row>
