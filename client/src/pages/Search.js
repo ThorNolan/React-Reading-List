@@ -6,10 +6,10 @@ import Card from "../components/Card";
 import { Input, FormBtn } from "../components/Form";
 
 // Book results from the google API need to be formatted so that they can be transmuted to the state of the search page
-const formatBookResults = googleApiResults => {
+const formatBookResults = apiBookResults => {
   const bookArray = [];
 
-  googleApiResults.map(book => {
+  apiBookResults.map(book => {
 
     // Formatted book object for passing down props to the stateless book card component
     const formattedBook = {

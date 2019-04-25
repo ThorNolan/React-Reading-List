@@ -2,11 +2,25 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
-// import API from "../utils/API";
+import API from "../utils/API";
 
-class Detail extends Component {
+class Saved extends Component {
   state = {
     books: []
+  };
+
+  // Utilize our API to get saved books from the database
+  getSavedBooks = () => {
+    API.getSaved()
+      .then(res => this.setState({books: res.data}))
+      .catch(err => console.log(err))
+  };
+
+  
+
+  // Run the get saved books function when component mounts
+  componentDidMount() {
+    this.getSavedBooks();
   };
 
   render() {
@@ -23,10 +37,12 @@ class Detail extends Component {
         </Row>
         <Row>
           <Col size="md-10 md-offset-1">
-            <article>
-              <h1>Synopsis</h1>
-              <p>{this.state.book.synopsis}</p>
-            </article>
+            <Card
+              books={this.state.books}
+              buttonAction={this.deleteBook}
+              buttonType="btn btn-danger mt-2"
+              buttonText="Delete Book"
+            />
           </Col>
         </Row>
         <Row>
@@ -39,4 +55,4 @@ class Detail extends Component {
   }
 }
 
-export default Detail;
+export default Saved;
