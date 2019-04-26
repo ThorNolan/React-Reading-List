@@ -7,7 +7,11 @@ MERN Google Books Search
 
 ## 🔑 How to Use the App:
 
-On the search page, simply enter in a title (or partial title) of any book you'd like to search for, and the app will retrieve 15 titles from the Google books API and display them on the page after formatting the response object. 
+On the search page, simply enter in a title (or partial title) of any book you'd like to search for, and the app will retrieve 15 titles from the Google books API and display them on the page after formatting the response object and mapping through it.  
+
+Each book displayed on the page has a "save book" button that you can press to save that particular book to your "saved" collection. You can click the saved navigation tab at any time to be routed to the saved books page, where you can view any books you've saved to your collection.
+
+Enjoy!
 
 ## 📁 Deployment Instructions
 

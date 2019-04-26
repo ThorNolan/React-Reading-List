@@ -8,7 +8,7 @@ const BookSchema = new Schema({
   },
   authors: {
     type: [String],
-    required: true
+    required: false
   },
   description: {
     type: String,
@@ -25,11 +25,7 @@ const BookSchema = new Schema({
   },
   pageCount: String,
   subtitle: String,
-  publishedDate: String,
-  date: {
-    type: Date,
-    default: Date.now
-  }
+  publishedDate: String
 });
 
 const Book = mongoose.model('Book', BookSchema);

@@ -37,11 +37,12 @@ class Search extends Component {
     books: [],
   };
     
-  saveBook = book => {
-    API.saveBook(book)
+  saveBook = event => {
+    const chosenBook = this.state.books.find(book => book.googleBookId === event.target.id)
+    API.saveBook(chosenBook)
       .then(alert("Book saved to library."))
       .catch(err => console.log(err));
-    };
+  };
     
   handleInputChange = event => {
     const { name, value } = event.target;
