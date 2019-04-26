@@ -3,6 +3,7 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import Card from "../components/Card";
+import BookImg from "../components/BookImg";
 import { Input, FormBtn } from "../components/Form";
 
 // Book results from the google API need to be formatted so that they can be transmuted to the state of the search page
@@ -33,10 +34,12 @@ const formatBookResults = apiBookResults => {
 
 class Search extends Component {
   
+  // Initial state is an empty array for holding book objects
   state = {
     books: [],
   };
     
+  // SaveBook method hits the savebook API route, which saves that book to the saved section of the db
   saveBook = event => {
     const chosenBook = this.state.books.find(book => book.googleBookId === event.target.id)
     API.saveBook(chosenBook)
@@ -44,6 +47,7 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
     
+  // Handler for keeping track of user input on the form
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -51,6 +55,7 @@ class Search extends Component {
     });
   };
     
+  // Handler for form submission that hits my getGoogleBooks API route
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("handle form");
@@ -68,7 +73,9 @@ class Search extends Component {
         <Row>
           <Col size="sm-12">
             <Jumbotron>
+              <BookImg />
               <h1>Google Books Librarian, at Your Service</h1>
+
               <h5>Enter a title below to begin searching...</h5>
             </Jumbotron>
             <form>
@@ -79,7 +86,6 @@ class Search extends Component {
                 placeholder="e.g. The Lord of the Flies"
               />
               <FormBtn
-                // disabled={!(this.state.author && this.state.title)}
                 onClick={this.handleFormSubmit}
               >
                 Search

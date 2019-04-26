@@ -1,15 +1,14 @@
 MERN Google Books Search
 ==============================================
-
+This is a full-stack MERN application I built for my coding bootcamp, which allows users to search for book titles and retrieve information about them by utilizing the Google Books API. It relies on a MongoDB database for data persistence, Express for routing from my server, React for serving up and manipulating front-end content, and Node as its runtime environment. Users can navigate between the search page, where they can search for and examine different books, and the saved page, where they can see any books they've chosen to add to their collection. They also have the option of deleting a book from their saved collection after they've added it.  
 
 ![Demo Gif]( "Demo gif")
 
-
 ## 🔑 How to Use the App:
 
-On the search page, simply enter in a title (or partial title) of any book you'd like to search for, and the app will retrieve 15 titles from the Google books API and display them on the page after formatting the response object and mapping through it.  
+On the search page, simply enter in a title (or partial title) of any book you'd like to search for, and the app will retrieve 15 titles from the Google books API and display them on the page after formatting the response object and mapping it to a card component.  
 
-Each book displayed on the page has a "save book" button that you can press to save that particular book to your "saved" collection. You can click the saved navigation tab at any time to be routed to the saved books page, where you can view any books you've saved to your collection.
+Each book displayed on the page has a "save book" button that you can press to save that particular book to your "saved" collection. You can click the saved navigation tab at any time to be routed to the saved books page, where you can view any of the books you've saved to your collection.
 
 Enjoy!
 
