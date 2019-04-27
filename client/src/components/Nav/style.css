@@ -1,3 +1,12 @@
 nav.navbar.navbar-default {
     margin-bottom: 0;
 }
+
+.navbar {
+    background-color: #FFCA4F;
+}
+
+.navbar-brand, .nav-item {
+    font-family: 'Rubik', sans-serif;
+    color: #fff;
+}

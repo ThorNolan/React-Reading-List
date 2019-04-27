@@ -40,7 +40,7 @@ class Saved extends Component {
                 <BookImg />
                 <h1>Google Books Librarian, at Your Service</h1>
                 
-                <h5>Your Saved Books:</h5>
+                <h5>Your Saved Collection:</h5>
             </Jumbotron>
           </Col>
         </Row>

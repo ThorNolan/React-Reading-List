@@ -1,6 +1,8 @@
 .jumbotron {
     margin: 0;
     padding: 0;
+    margin-top: 1%;
+    margin-bottom: 1%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
       color: white;
@@ -9,8 +11,11 @@
       -webkit-animation: Gradient 15s ease infinite;
       -moz-animation: Gradient 15s ease infinite;
       animation: Gradient 15s ease infinite;
-  }
-  
+}
+ 
+.jumbotron h1, h5{
+    font-family: 'Rubik', sans-serif;
+}
   /* The following keyframes accomplish the gradient background color effect (firefox and IE compatible) */
   @-webkit-keyframes Gradient {
       0% {
