@@ -32,6 +32,36 @@
   border-bottom: none;
 }
 
+.btn {
+  font-family: 'Rubik', sans-serif;
+}
+
 .btn-success {
   background-color: #FFCA4F;
+  border-color: #FFCA4F;
+}
+
+.btn-success:hover {
+  background-color:#FF5C62;
+  border-color: #FF5C62;
+}
+
+.btn-info {
+  background-color: #21D0C2;
+  border-color: #21D0C2;
+}
+
+.btn-info:hover {
+  background-color: #21D0C2;
+  border-color: #21D0C2;
+}
+
+.btn-danger {
+  background-color:#FF5C62;
+  border-color: #FF5C62;
+}
+
+.btn-danger:hover {
+  background-color: #FFCA4F;
+  border-color: #FFCA4F;
 }

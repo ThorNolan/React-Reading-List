@@ -48,7 +48,7 @@ class Saved extends Component {
         </Row>
         </Fade>
         <Row>
-          <Col size="md-10 md-offset-1">
+          <Col size="sm-12">
             {this.state.books.length ? (
               <Card
                 books={this.state.books}
@@ -64,8 +64,8 @@ class Saved extends Component {
           </Col>
         </Row>
         <Row>
-          <Col size="md-2">
-            <Link to="/" className="mx-auto">← Back to Search</Link>
+          <Col size="md-2 mx-auto">
+            <Link to="/" className="mx-auto text-center">← Back to Search</Link>
           </Col>
         </Row>
       </Container>

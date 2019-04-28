@@ -1,8 +1,8 @@
 MERN Google Books Search
 ==============================================
-This is a full-stack MERN application I built for my coding bootcamp, which allows users to search for book titles and retrieve information about them by utilizing the Google Books API. It relies on a MongoDB database for data persistence, Express for routing from my server, React for serving up and manipulating front-end content, and Node as its runtime environment. Users can navigate between the search page, where they can search for and examine different books, and the saved page, where they can see any books they've chosen to add to their collection. They also have the option of deleting a book from their saved collection after they've added it.  
+This is a full-stack MERN application I built for my coding bootcamp, which allows users to search for book titles and retrieve information about them by utilizing the Google Books API. It relies on a MongoDB database for data persistence, Express for routing from my server, React for serving up and manipulating front-end content, and Node as its runtime environment. Users can navigate between the search page, where they can search for and examine different books, and the saved page, where they can see any books they've chosen to add to their collection. They also have the option of deleting a book from their saved collection after they've added it, which will update the database accordingly.  
 
-![Demo Gif]( "Demo gif")
+![Demo Gif](./client/public/react-book-search-demo.gif "Demo gif")
 
 ## 🔑 How to Use the App:
 
@@ -51,14 +51,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   + [mongoose](https://www.npmjs.com/package/mongoose) for querying the mongo database. 
   + [express](https://www.npmjs.com/package/express) as a routing framework.
   + [react-router-dom](https://www.npmjs.com/package/react-router-dom) as a React routing library for navigating between pages.
-  + [react-reveal](https://www.npmjs.com/package/react-reveal) a lightweight animatin library for revealing content on scroll.
+  + [react-reveal](https://www.npmjs.com/package/react-reveal) a lightweight animation library for revealing content on scroll.
 
 
 ## Acknowledgements
 
+Thank you to my instructor Jerome and my TA's Jimmy, Jacob and Sajeel for their help! 
+
 <div>Icons made by <a href="https://www.flaticon.com/authors/popcorns-arts" title="Icon Pond">Icon Pond</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
-Background pattern is from Subtle Patterns
+Background pattern is from Subtle Patterns.
 
 
 ## 🌌 Author 

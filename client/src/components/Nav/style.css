@@ -17,13 +17,13 @@ nav.navbar.navbar-default {
 }
 
 .navbar-brand:hover {
-    color: #fff;
+    color: #21D0C2
 }
 
 .nav-item a:hover {
     color: #FF5C62;
 }
 
-.nav-link active {
+.active {
     color: #FF5C62;
 }

@@ -16,7 +16,9 @@ const formatBookResults = apiBookResults => {
     // Formatted book object for passing down props to the stateless book card component
     const formattedBook = {
       title: book.volumeInfo.title,
-      authors: book.volumeInfo.authors,
+      authors: book.volumeInfo.authors
+        ? book.volumeInfo.authors
+        : ['Could not find author.'],
       description: book.volumeInfo.description,
       googleBookId: book.id,
       thumbnail: book.volumeInfo.imageLinks
@@ -85,7 +87,7 @@ class Search extends Component {
                 value={this.state.title}
                 onChange={this.handleInputChange}
                 name="title"
-                placeholder="e.g. The Lord of the Flies"
+                placeholder="e.g. Lord of the Flies"
               />
               <FormBtn
                 onClick={this.handleFormSubmit}
@@ -106,7 +108,7 @@ class Search extends Component {
               />
             ) : (
               <div className="mx-auto">
-                <h3 className="mx-auto text-center">No results to display! Enter a title above</h3>
+                <h3 className="mx-auto text-center">Nothing to display yet!</h3>
               </div>
             )}
           </Col>
