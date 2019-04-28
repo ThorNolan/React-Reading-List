@@ -51,6 +51,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   + [mongoose](https://www.npmjs.com/package/mongoose) for querying the mongo database. 
   + [express](https://www.npmjs.com/package/express) as a routing framework.
   + [react-router-dom](https://www.npmjs.com/package/react-router-dom) as a React routing library for navigating between pages.
+  + [react-reveal](https://www.npmjs.com/package/react-reveal) a lightweight animatin library for revealing content on scroll.
 
 
 ## Acknowledgements

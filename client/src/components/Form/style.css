@@ -1,3 +1,10 @@
 .formBtn {
     background-color: #FFCA4F;
+    border-color: #FFCA4F;
+    float: left;
+}
+
+.formBtn:hover {
+    background-color: #21D0C2;
+    border-color:#21D0C2;
 }

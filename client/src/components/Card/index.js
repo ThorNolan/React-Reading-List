@@ -1,9 +1,11 @@
 import React from "react";
 import "./style.css";
+import Slide from 'react-reveal/Slide';
 
 // Card props are passed down from the formatted book object on the search page
 function Card(props) {
   return (
+    <Slide left>
     <div className="row mb-5">
       <div className="col-lg-12">
         {/* map over the books from the books state that was passed down to create cards for each book in the array */}
@@ -35,6 +37,7 @@ function Card(props) {
         ))}
       </div>
     </div>
+    </Slide>
   )
 }
 

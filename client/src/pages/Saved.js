@@ -5,6 +5,7 @@ import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 import BookImg from "../components/BookImg";
 import API from "../utils/API";
+import Fade from 'react-reveal/Fade';
 
 // The 'saved' page holds any saved books the user might have, or displays a message if they haven't saved anything yet
 class Saved extends Component {
@@ -34,6 +35,7 @@ class Saved extends Component {
   render() {
     return (
       <Container fluid>
+        <Fade top>
         <Row>
           <Col size="md-12">
             <Jumbotron>
@@ -44,6 +46,7 @@ class Saved extends Component {
             </Jumbotron>
           </Col>
         </Row>
+        </Fade>
         <Row>
           <Col size="md-10 md-offset-1">
             {this.state.books.length ? (
@@ -55,7 +58,7 @@ class Saved extends Component {
               />
             ) : (
               <div className="mx-auto">
-                  <h3 className="mx-auto">Nothing saved yet, head over to the search page and start saving some books to see them here!</h3>
+                  <h3 className="mx-auto text-center">Nothing saved yet, head over to the search page and start saving some books to see them here!</h3>
               </div>
             )}
           </Col>

@@ -6,7 +6,24 @@ nav.navbar.navbar-default {
     background-color: #FFCA4F;
 }
 
-.navbar-brand, .nav-item {
+.navbar-brand, .nav-item a {
     font-family: 'Rubik', sans-serif;
     color: #fff;
+}
+
+.navbar-brand {
+    color: #21D0C2;
+    text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color: #fff;
+}
+
+.nav-item a:hover {
+    color: #FF5C62;
+}
+
+.nav-link active {
+    color: #FF5C62;
 }

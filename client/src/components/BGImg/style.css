@@ -8,3 +8,7 @@ img.bg-img {
     left: 0;
     z-index: -2;
 }
+
+h3, h6, p, .form-control, .formBtn {
+    font-family: 'Rubik', sans-serif;
+}

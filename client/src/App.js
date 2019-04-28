@@ -5,10 +5,9 @@ import Search from './pages/Search';
 import Saved from './pages/Saved';
 import BGImg from './components/BGImg'
 
-
 const App = () => (
   <Router>
-    <div>
+    <div className="mainBody">
       <BGImg/>
       <Nav/>
       <Switch>

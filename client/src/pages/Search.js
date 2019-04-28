@@ -5,6 +5,7 @@ import { Col, Row, Container } from "../components/Grid";
 import Card from "../components/Card";
 import BookImg from "../components/BookImg";
 import { Input, FormBtn } from "../components/Form";
+import Fade from 'react-reveal/Fade';
 
 // Book results from the google API need to be formatted so that they can be transmuted to the state of the search page
 const formatBookResults = apiBookResults => {
@@ -69,6 +70,7 @@ class Search extends Component {
 
   render() {
     return (
+      <Fade top>
       <Container fluid>
         <Row>
           <Col size="sm-12">
@@ -104,12 +106,13 @@ class Search extends Component {
               />
             ) : (
               <div className="mx-auto">
-                <h3 className="mx-auto">No results to display! Enter a title above</h3>
+                <h3 className="mx-auto text-center">No results to display! Enter a title above</h3>
               </div>
             )}
           </Col>
         </Row>
       </Container>
+      </Fade>
     );
   }
 }
